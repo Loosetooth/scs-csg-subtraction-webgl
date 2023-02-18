@@ -8,12 +8,13 @@ import { ScreenPlaneRenderer } from "./screen-plane-renderer";
 
 console.log("Hello!");
 
-const width = 400;
-const height = 300;
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-canvas.width = width;
-canvas.height = height;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const width = canvas.width;
+const height = canvas.height;
+
 
 // create renderer
 const renderer = new THREE.WebGLRenderer({
@@ -85,7 +86,7 @@ scene.add(createPointLight(-40, 4, -40));
 scene.add(createPointLight(60, 4, -40));
 scene.add(createPointLight(-60, 4, 40));
 
-const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 25);
+const camera = new THREE.PerspectiveCamera(60, width / height);
 camera.position.set(10, -2, 8);
 const controls = new T.OrbitControls(camera);
 window["scene"] = scene;
