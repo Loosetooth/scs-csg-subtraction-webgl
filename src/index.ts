@@ -73,19 +73,47 @@ const sphere5 = new THREE.Mesh(
 
 sphere5.position.set(2, -2, -4);
 
-const intersectSphere1 = new THREE.Mesh(
+const subtractSphere1 = new THREE.Mesh(
   new THREE.SphereBufferGeometry(1, 22, 22),
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 );
 
-intersectSphere1.position.set(-2, -2, 4);
+subtractSphere1.position.set(-2, -2, 4);
 
-const intersectSphere2 = new THREE.Mesh(
+const subtractSphere2 = new THREE.Mesh(
   new THREE.SphereBufferGeometry(1, 22, 22),
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 );
 
-intersectSphere2.position.set(-1, -2, 4);
+subtractSphere2.position.set(-1, -2, 4);
+
+const jscadCube = new THREE.Mesh(
+  new THREE.BoxBufferGeometry(1, 1, 1),
+  new THREE.MeshStandardMaterial({ color: randomRGBColor() })
+)
+
+jscadCube.position.set(2, -2, 4);
+
+const jscadSphere = new THREE.Mesh(
+  new THREE.SphereBufferGeometry(0.6, 22, 22),
+  new THREE.MeshStandardMaterial({ color: randomRGBColor() })
+);
+
+jscadSphere.position.set(2, -2, 4);
+
+const jscadCube2 = new THREE.Mesh(
+  new THREE.BoxBufferGeometry(2, 2, 2),
+  new THREE.MeshStandardMaterial({ color: randomRGBColor() })
+)
+
+jscadCube2.position.set(2, -2, 4);
+
+const jscadSphere2 = new THREE.Mesh(
+  new THREE.SphereBufferGeometry(1.3, 22, 22),
+  new THREE.MeshStandardMaterial({ color: randomRGBColor() })
+);
+
+jscadSphere2.position.set(2, -2, 4);
 
 scene.add(cube);
 scene.add(sphere);
@@ -93,8 +121,12 @@ scene.add(sphere2);
 scene.add(sphere3);
 scene.add(sphere4);
 scene.add(sphere5);
-scene.add(intersectSphere1);
-scene.add(intersectSphere2);
+scene.add(subtractSphere1);
+scene.add(subtractSphere2);
+scene.add(jscadCube);
+scene.add(jscadSphere);
+scene.add(jscadCube2);
+scene.add(jscadSphere2);
 sphere4.visible = false;
 
 scene.add(createHemiLight());
@@ -123,10 +155,14 @@ const frame = (dt: number = 0) => {
   sphere2.scale.set(1 + x, 1 + x, 1 + x);
   sphere3.scale.set(1 + x, 1 + x, 1 + x);
   sphere.scale.set(1 + y, 1 + y, 1 + y);
-  intersectSphere2.position.set(-1 + x, -2, 4)
+  subtractSphere2.position.set(-1 + x, -2, 4)
 
-  scene.remove(intersectSphere1)
-  scene.remove(intersectSphere2)
+  scene.remove(subtractSphere1)
+  scene.remove(subtractSphere2)
+  scene.remove(jscadCube)
+  scene.remove(jscadSphere)
+  scene.remove(jscadCube2)
+  scene.remove(jscadSphere2)
   scsRenderer.renderSubtract(
     scene,
     camera,
@@ -135,13 +171,33 @@ const frame = (dt: number = 0) => {
     sphere4
   );
 
-  scene.add(intersectSphere1)
-  scene.add(intersectSphere2)
+  scene.add(subtractSphere1)
+  scene.add(subtractSphere2)
+  scsRenderer.renderIntersect(
+    scene,
+    camera,
+    subtractSphere1,
+    [subtractSphere2],
+    sphere4
+  );
+
+  scene.add(jscadCube)
+  scene.add(jscadSphere)
+  scsRenderer.renderIntersect(
+    scene,
+    camera,
+    jscadCube,
+    [jscadSphere],
+    sphere4
+  );
+
+  scene.add(jscadCube2)
+  scene.add(jscadSphere2)
   scsRenderer.renderSubtract(
     scene,
     camera,
-    intersectSphere1,
-    [intersectSphere2],
+    jscadCube2,
+    [jscadSphere2],
     sphere4
   );
 
