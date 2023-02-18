@@ -1,5 +1,5 @@
 import { createRenderTarget, drawMeshDirect } from "./utils";
-import { State } from "./../src_old/state";
+import { State } from "../src_old/state";
 import * as THREE from "three";
 import { alphaIDMaterial, alphaFilterMaterial } from "./alpha-material";
 import { ScreenPlaneRenderer } from "./screen-plane-renderer";

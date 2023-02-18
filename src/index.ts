@@ -1,7 +1,7 @@
 import { alphaIDMaterial } from "./alpha-material";
 import * as THREE from "three";
 import * as T from "three-full";
-import { SCSRenderer } from "./scs-subtract";
+import { SCSRenderer } from "./SCSRenderer";
 import { State } from "../src_old/state";
 import { randomRGBColor, createHemiLight, createPointLight } from "./utils";
 import { ScreenPlaneRenderer } from "./screen-plane-renderer";
