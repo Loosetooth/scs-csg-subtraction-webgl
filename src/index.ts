@@ -125,6 +125,8 @@ const frame = (dt: number = 0) => {
   sphere.scale.set(1 + y, 1 + y, 1 + y);
   intersectSphere2.position.set(-1 + x, -2, 4)
 
+  scene.remove(intersectSphere1)
+  scene.remove(intersectSphere2)
   scsRenderer.renderSubtract(
     scene,
     camera,
@@ -133,6 +135,8 @@ const frame = (dt: number = 0) => {
     sphere4
   );
 
+  scene.add(intersectSphere1)
+  scene.add(intersectSphere2)
   scsRenderer.renderSubtract(
     scene,
     camera,
