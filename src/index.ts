@@ -64,7 +64,7 @@ const sphere4 = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 );
 
-sphere4.position.set(2, 2, 4);
+sphere4.position.set(2, -2, 4);
 
 const sphere5 = new THREE.Mesh(
   new THREE.SphereBufferGeometry(1, 22, 22),
@@ -92,28 +92,28 @@ const jscadCube = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 )
 
-jscadCube.position.set(2, -2, 4);
+jscadCube.position.set(2, 2, 4);
 
 const jscadSphere = new THREE.Mesh(
   new THREE.SphereBufferGeometry(0.6, 22, 22),
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 );
 
-jscadSphere.position.set(2, -2, 4);
+jscadSphere.position.set(2, 2, 4);
 
 const jscadCube2 = new THREE.Mesh(
   new THREE.BoxBufferGeometry(2, 2, 2),
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 )
 
-jscadCube2.position.set(2, -2, 4);
+jscadCube2.position.set(2, 2, 4);
 
 const jscadSphere2 = new THREE.Mesh(
   new THREE.SphereBufferGeometry(1.3, 22, 22),
   new THREE.MeshStandardMaterial({ color: randomRGBColor() })
 );
 
-jscadSphere2.position.set(2, -2, 4);
+jscadSphere2.position.set(2, 2, 4);
 
 scene.add(cube);
 scene.add(sphere);
