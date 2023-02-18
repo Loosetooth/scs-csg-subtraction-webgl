@@ -1,0 +1,8 @@
+{
+  "generator-parcel": {
+    "promptValues": {
+      "typescript": true,
+      "sass": false
+    }
+  }
+}
